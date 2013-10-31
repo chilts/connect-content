@@ -6,7 +6,7 @@
 var connectContent = require('connect-content);
 
 var content = connectContent({
-    contentDir  : fs.joinPath('/', __dirname, 'content'),
+    contentDir : fs.joinPath('/', __dirname, 'content'),
 });
 
 // later on
@@ -44,42 +44,17 @@ This would serve up the following files (if ```connect-content``` was mounted at
 * /code
 ```
 
-Once 'connect-blog' has read those files in, it will create a structure similar to the following:
+Once 'connect-content' has read those files in, it will create a structure similar to the following:
 
 ```
 {
-    name    : 'my-first-post',
+    name    : 'my-page',
     content : ' ... the entire content from the *.md, *..html or *.txt file ... ',
     html    : ' ... the HTML from the HTML conversion ... ',
     meta    : {
         // then entire data read from the *.json or *.ini file
     }
 }
-```
-
-## Synopsis ##
-
-To set up some content from within Express, try this:
-
-```
-var connectContent = require('connect-content);
-
-var content = connectContent({
-    title       : 'My Projects',
-    contentDir  : fs.joinPath('/', __dirname, 'content/project'),
-    domain      : 'example.com',
-    basePath    : '/project',
-});
-
-app.get( '/project/',      content );
-app.get( '/project/:path', content );
-```
-
-This will serve the following pages:
-
-```
-/blog/  - renders the 'content-index' template
-/blog/* - renders the 'content-page' template
 ```
 
 ## Default Options ##
@@ -89,9 +64,9 @@ is the ```domain```.
 
 ```
 var opts = {
-    title       : 'Content',
+    title       : 'My Content',
     contentDir  : 'content',
-    basePath    : '',
+    template    : 'my-content-page',
 };
 ```
 

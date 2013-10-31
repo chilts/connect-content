@@ -1,0 +1,35 @@
+{
+    "name" : "connect-content",
+    "description" : "Content middleware you can add to your Connect/Express app.",
+    "version" : "0.1.0",
+
+    "main" : "connect-content.js",
+
+    "dependencies" : {
+        "marked"      : "*",
+        "textile-js"  : "0.1.x",
+        "escape-html" : "1.0.x",
+        "xtend"       : "*"
+    },
+
+    "homepage" : "https://github.com/chilts/connect-content",
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/chilts/connect-content.git"
+    },
+    "bugs" : {
+        "url" : "https://github.com/chilts/connect-content/issues",
+        "email" : "andychilton@gmail.com"
+    },
+
+    "author" : {
+        "name" : "Andrew Chilton",
+        "email" : "andychilton@gmail.com",
+        "url" : "http://chilts.org/"
+    },
+    "licenses" : [{
+        "type" : "MIT",
+        "url" : "http://chilts.mit-license.org/2013"
+    }],
+    "tags" : [ "connect", "express", "content" ]
+}

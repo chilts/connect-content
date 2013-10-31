@@ -70,6 +70,28 @@ var opts = {
 };
 ```
 
+## Filetypes ##
+
+Generally there are two types of file in your content directory. Content files and meta files.
+
+* content
+** *.html
+** *.md
+** *.textile
+** *.txt
+* meta
+** *.json
+** *.ini
+** *.yaml
+
+Therefore, for each page you want one of each type. For an `about` page you could have:
+
+* about.html
+* about.json
+
+If you also have an `about.md`, then only one of `about.html` and `about.md` will be shown (and it is not specified
+which one) so make sure you only have one of each type in the `contentDir`.
+
 # Author #
 
 Written by [Andrew Chilton](http://chilts.org/) - [Blog](http://chilts.org/blog/) - [Twitter](https://twitter.com/andychilton).

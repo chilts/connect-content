@@ -84,8 +84,8 @@ The default template used is `content-page` so a really simple example (in Jade)
 extends layout
 
 block content
-  h1= page.meta.title
-  | !{page.html}
+  h1= content.title
+  | !{content.page.html}
 ```
 
 This means that the title is placed into the h1 and the html that has been generated is placed (unescaped) underneath

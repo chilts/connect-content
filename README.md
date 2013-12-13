@@ -11,19 +11,19 @@ var content = connectContent({
 
 // later on
 app.get('/', content);
-app.get('/:path', content);
+app.get('/:pagename', content);
 ```
 
-This example will serve this content at the root level. You must set both ```/``` and ```/:path``` so that we can show
-the 'index' page at ```/``` since Express doesn't call us for ```/``` when using only ```/:path```.  The ```/:path```
-parameter must also be called ```path```, not anything else.
+This example will serve this content at the root level. You must set both `/` and `/:pagename` so that we can show
+the 'index' page at `/` since Express doesn't call us for `/` when using only `/:pagename`.  The `/:pagename`
+parameter must also be called `pagename`, not anything else, otherwise `connect-content` wouldn't know where to look.
 
 ## What is connect-content ##
 
-'connect-content' is middleware for Express/Connect. It can read a directory full of static ```md|txt|html|json|ini```
+'connect-content' is middleware for Express/Connect. It can read a directory full of static `md|txt|html|json|ini`
 files and serve up some content for each.
 
-Note that ```md```, ```txt``` and ```html``` files are content files. And ```json``` and ```ini``` files are metadata
+Note that `md`, `txt` and `html` files are content files. And `json` and `ini` files are metadata
 files. You should only have one of each type for each path. e.g.
 
 If, for example you had a directory of files:
@@ -36,7 +36,7 @@ about.html
 code.txt
 ```
 
-This would serve up the following files (if ```connect-content``` was mounted at ```/```)::
+This would serve up the following files (if `connect-content` was mounted at `/`)::
 
 ```
 * /

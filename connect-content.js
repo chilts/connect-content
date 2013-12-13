@@ -103,7 +103,7 @@ module.exports = function(args) {
             page : page,
         };
 
-        var pagename = req.params.page;
+        var pagename = req.params.pagename;
 
         if ( !pagename ) {
             if ( !page.index ) {

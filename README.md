@@ -3,7 +3,7 @@
 ## Synopsis ##
 
 ```
-var connectContent = require('connect-content);
+var connectContent = require('connect-content');
 
 var content = connectContent({
     contentDir : fs.joinPath('/', __dirname, 'content'),

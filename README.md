@@ -6,7 +6,7 @@
 var connectContent = require('connect-content');
 
 var content = connectContent({
-    contentDir : fs.joinPath('/', __dirname, 'content'),
+    contentDir : path.join('/', __dirname, 'content'),
 });
 
 // later on

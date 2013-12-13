@@ -116,7 +116,7 @@ module.exports = function(args) {
             return res.render(opts.template);
         }
 
-        // is this a page
+        // if the page exists
         if ( page[pagename] ) {
             res.locals.content.title = opts.title + ' : ' + page[pagename].meta.title;
             res.locals.content.page  = page[pagename];

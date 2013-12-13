@@ -22,7 +22,7 @@ var escape   = require('escape-html');
 // ----------------------------------------------------------------------------
 
 var defaults = { 
-    title      : 'Your Content',
+    title      : 'Content',
     contentDir : 'content',
     template   : 'content-page',
 };

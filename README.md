@@ -59,16 +59,37 @@ Once 'connect-content' has read those files in, it will create a structure simil
 
 ## Default Options ##
 
-The default options have reasonable (not necessarily sensible) defaults for each of these keys, so the only onw you MUST provide
-is the ```domain```.
+The default options have reasonable defaults for each of these keys, but you can provide your own if you like:
 
 ```
+var defaults = {
+    title       : 'Content',
+    contentDir  : 'content',
+    template    : 'content-page',
+};
+
+
 var opts = {
     title       : 'My Content',
-    contentDir  : 'content',
+    contentDir  : path.join('/', __dirname, 'my-content'),
     template    : 'my-content-page',
 };
 ```
+
+## The Template ##
+
+The default template used is `content-page` so a really simple example (in Jade) of that is:
+
+```
+extends layout
+
+block content
+  h1= page.meta.title
+  | !{page.html}
+```
+
+This means that the title is placed into the h1 and the html that has been generated is placed (unescaped) underneath
+that. Since we are using Markdown or Textile for the page content, any HTML escaping has already occurred.
 
 ## Filetypes ##
 

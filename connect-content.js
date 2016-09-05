@@ -72,10 +72,10 @@ module.exports = function(args) {
             }
         }
         if ( ext === 'yml' || ext === 'yaml' ) {
-            page[basename].meta = xtend({}, page[basename].meta, yaml.load(contents));
+            page[basename].meta = xtend(page[basename].meta, yaml.load(contents));
         }
         if ( ext === 'ini' ) {
-            page[basename].meta = xtend({}, page[basename].meta, ini.decode(contents));
+            page[basename].meta = xtend(page[basename].meta, ini.decode(contents));
         }
 
         // do the content files
@@ -104,30 +104,17 @@ module.exports = function(args) {
             page : page,
         };
 
-        var pagename = req.params.pagename;
+        // get the pagename from the request params (ie. the `/content/:pagename`)
+        var pagename = req.params.pagename || 'index';
+        console.log('pagename:', pagename);
 
-        if ( !pagename ) {
-            if ( !page.index ) {
-                // no index page
-                return next();
-            }
+        // if the page doesn't exist
+        if ( !page[pagename] ) return next();
 
-            locals.title = page['index'].meta.title;
-            locals.page  = page.index;
-            res.locals[opts.localsVar] = locals;
-            return res.render(opts.template);
-        }
-
-        // if the page exists
-        if ( page[pagename] ) {
-            locals.title = page[pagename].meta.title;
-            locals.page  = page[pagename];
-            res.locals[opts.localsVar] = locals;
-            return res.render(opts.template);
-        }
-
-        // didn't find anything interesting, pass it on
-        next();
+        // save this page to locals
+        locals.thisPage = page[pagename];
+        res.locals[opts.localsVar] = locals;
+        return res.render(opts.template);
     };
 
     // prior to returning, let's put these vars onto this middleware so

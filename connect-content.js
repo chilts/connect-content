@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-// connect-blog.js - Blog middleware you can add to your Connect/Express app.
+// connect-blog.js - Content middleware you can add to your Connect/Express app.
 //
 // Copyright (c) 2013 Andrew Chilton. All rights resered.
 //
@@ -25,6 +25,7 @@ var defaults = {
     title      : 'Content',
     contentDir : 'content',
     template   : 'content-page',
+    localsVar  : 'content',
 };
 
 // ----------------------------------------------------------------------------
@@ -99,7 +100,7 @@ module.exports = function(args) {
     // console.log(page);
 
     var middleware = function(req, res, next) {
-        res.locals.content = {
+        var locals = {
             page : page,
         };
 
@@ -111,15 +112,17 @@ module.exports = function(args) {
                 return next();
             }
 
-            res.locals.content.title = page['index'].meta.title;
-            res.locals.content.page  = page.index;
+            locals.title = page['index'].meta.title;
+            locals.page  = page.index;
+            res.locals[opts.localsVar] = locals;
             return res.render(opts.template);
         }
 
         // if the page exists
         if ( page[pagename] ) {
-            res.locals.content.title = page[pagename].meta.title;
-            res.locals.content.page  = page[pagename];
+            locals.title = page[pagename].meta.title;
+            locals.page  = page[pagename];
+            res.locals[opts.localsVar] = locals;
             return res.render(opts.template);
         }
 

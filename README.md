@@ -66,19 +66,20 @@ var defaults = {
     title       : 'Content',
     contentDir  : 'content',
     template    : 'content-page',
+    localsVar   : 'content',
 };
 
-
 var opts = {
-    title       : 'My Content',
-    contentDir  : path.join('/', __dirname, 'my-content'),
-    template    : 'my-content-page',
+    title       : 'My Projects',
+    contentDir  : path.join('/', __dirname, 'projects'),
+    template    : 'project-page',
+    localsVar   : 'projects',
 };
 ```
 
 ## The Template ##
 
-The default template used is `content-page` so a really simple example (in Jade) of that is:
+The default template used is `content-page` so a really simple example (in Pug) of that is:
 
 ```
 extends layout
@@ -115,10 +116,14 @@ which one) so make sure you only have one of each type in the `contentDir`.
 
 # Author #
 
-Written by [Andrew Chilton](http://chilts.org/) - [Blog](http://chilts.org/blog/) - [Twitter](https://twitter.com/andychilton).
+[Andrew Chilton](http://chilts.org/):
+
+* [Blog](https://chilts.org/)
+* [Twitter](https://twitter.com/andychilton).
+* [GitHub](https://github.com/chilts).
 
 # License #
 
-* [Copyright 2013 Andrew Chilton.  All rights reserved.](http://chilts.mit-license.org/2013/)
+* [Copyright 2013 Andrew Chilton. All rights reserved.](http://chilts.mit-license.org/2013/)
 
 (Ends)

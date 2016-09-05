@@ -1,6 +1,6 @@
 {
   "name": "connect-content",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Content middleware you can add to your Connect/Express app.",
   "main": "connect-content.js",
   "dependencies": {

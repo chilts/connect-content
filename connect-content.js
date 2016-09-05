@@ -111,14 +111,14 @@ module.exports = function(args) {
                 return next();
             }
 
-            res.locals.content.title = opts.title + ' : ' + page['index'].meta.title;
+            res.locals.content.title = page['index'].meta.title;
             res.locals.content.page  = page.index;
             return res.render(opts.template);
         }
 
         // if the page exists
         if ( page[pagename] ) {
-            res.locals.content.title = opts.title + ' : ' + page[pagename].meta.title;
+            res.locals.content.title = page[pagename].meta.title;
             res.locals.content.page  = page[pagename];
             return res.render(opts.template);
         }
